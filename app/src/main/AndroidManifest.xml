@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeiroApp">
-        <activity android:name=".NovoUsuarioActivity"></activity>
+        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".NovoUsuarioActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
