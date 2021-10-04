@@ -164,7 +164,7 @@
         android:padding="10dp" />
 
     <EditText
-        android:id="@+id/editAltura"
+        android:id="@+id/editData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/editEmail"
@@ -175,7 +175,8 @@
         android:drawablePadding="10dp"
         android:hint="Data de nascimento"
         android:maxLength="30"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:focusable="false" />
 
     <LinearLayout
         android:id="@+id/linearPessoais"
