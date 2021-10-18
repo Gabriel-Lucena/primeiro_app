@@ -80,21 +80,29 @@
         android:maxLength="30"
         android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/editSenha"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editEmail"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/activity_edit_text"
-        android:drawableStart="@drawable/ic_baseline_lock_24"
-        android:drawablePadding="10dp"
-        android:hint="Senha"
-        android:maxLength="30"
-        android:padding="10dp" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:passwordToggleEnabled="true">
 
+        <EditText
+            android:id="@+id/editSenha"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/editEmail"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/activity_edit_text"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="10dp"
+            android:hint="Senha"
+            android:maxLength="30"
+            android:padding="10dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/linearPessoais"

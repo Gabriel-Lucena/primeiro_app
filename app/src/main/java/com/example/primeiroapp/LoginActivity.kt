@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
 
         marcos.setOnClickListener {
 
-            val abrir = Intent(this, DatePickerActivity::class.java)
+            val abrir = Intent(this, NovoUsuarioActivity::class.java)
 
             startActivity(abrir)
 
