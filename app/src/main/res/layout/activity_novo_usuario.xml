@@ -80,11 +80,7 @@
         android:maxLength="30"
         android:padding="10dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:passwordToggleEnabled="true">
+
 
         <EditText
             android:id="@+id/editSenha"
@@ -102,10 +98,8 @@
             android:padding="10dp" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
-
     <LinearLayout
-        android:id="@+id/linearPessoais"
+        android:id="@+id/lineapessoais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"

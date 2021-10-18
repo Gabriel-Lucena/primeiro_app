@@ -30,7 +30,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
         editData= findViewById(R.id.editData)
 
 
-        supportActionBar!!.title = "Perfil"
+        // supportActionBar!!.title = "Perfil"
 
         // Criar um calenário.
 
