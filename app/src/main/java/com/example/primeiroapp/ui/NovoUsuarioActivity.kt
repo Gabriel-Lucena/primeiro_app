@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.Toast
 import com.example.primeiroapp.R
 import com.example.primeiroapp.model.Usuario
 import com.example.primeiroapp.utils.convertStringToLocalDate
@@ -40,7 +41,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
         radioM = findViewById(R.id.radioMasculino)
 
 
-        // supportActionBar!!.title = "Perfil"
+        //supportActionBar!!.title = "Perfil"
 
         // Criar um calenário.
 
@@ -115,9 +116,21 @@ class NovoUsuarioActivity : AppCompatActivity() {
             )
 
             // Criar o objeto que permitirá a
-            // edição
+            // edição dos dados do arquivo SharedPreferences
+
+            val editor = dados.edit()
+            editor.putInt("id", usuario.id)
+            editor.putString("nome", usuario.nome)
+            editor.putString("email", usuario.email)
+            editor.putString("senha", usuario.senha)
+            editor.putInt("peso", usuario.peso)
+            editor.putFloat("altura", usuario.altura.toFloat())
+            editor.putString("dataNascimento", usuario.dataNascimento.toString())
+            editor.apply()
 
         }
+
+        Toast.makeText(this, "Usuário Cadastrado", Toast.LENGTH_SHORT).show()
 
         return true
 
