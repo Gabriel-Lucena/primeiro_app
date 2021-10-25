@@ -1,4 +1,4 @@
-package com.example.primeiroapp
+package com.example.primeiroapp.ui
 
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.Toast
+import com.example.primeiroapp.R
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {
