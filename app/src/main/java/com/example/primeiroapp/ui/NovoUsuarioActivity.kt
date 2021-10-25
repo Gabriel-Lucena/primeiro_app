@@ -1,12 +1,18 @@
 package com.example.primeiroapp.ui
 
 import android.app.DatePickerDialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.RadioButton
 import com.example.primeiroapp.R
+import com.example.primeiroapp.model.Usuario
+import com.example.primeiroapp.utils.convertStringToLocalDate
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {
@@ -17,6 +23,8 @@ class NovoUsuarioActivity : AppCompatActivity() {
     lateinit var editProfissao: EditText
     lateinit var editAltura: EditText
     lateinit var editData: EditText
+    lateinit var radioF: RadioButton
+    lateinit var radioM: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +35,9 @@ class NovoUsuarioActivity : AppCompatActivity() {
         editNome = findViewById(R.id.editNome)
         editProfissao = findViewById(R.id.editProfissao)
         editAltura = findViewById(R.id.editAltura)
-        editData= findViewById(R.id.editData)
+        editData = findViewById(R.id.editData)
+        radioF = findViewById(R.id.radioFeminino)
+        radioM = findViewById(R.id.radioMasculino)
 
 
         // supportActionBar!!.title = "Perfil"
@@ -48,36 +58,72 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
         etDataNascimento.setOnClickListener {
 
-            val dp = DatePickerDialog(this,
+            val dp = DatePickerDialog(
+                this,
 
-                DatePickerDialog.OnDateSetListener{ view, _ano, _mes, _dia ->
+                DatePickerDialog.OnDateSetListener { view, _ano, _mes, _dia ->
                     etDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
-                }, ano, mes, dia)
+                }, ano, mes, dia
+            )
 
             dp.show()
 
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean{
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.menu_salvar, menu)
         return true
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-    if (validarCampos()) {
+        if (validarCampos()) {
 
-        // Salvar o registro
+            // Criar um objeto usuário
 
-    }
+            val nascimento = convertStringToLocalDate(editData.text.toString())
+
+            val usuario = Usuario(
+                1,
+                editNome.text.toString(),
+                editEmail.text.toString(),
+                editSenha.text.toString(),
+                0,
+                editAltura.text.toString().toDouble(),
+                LocalDate.of(
+                    nascimento.year,
+                    nascimento.month,
+                    nascimento.dayOfMonth
+                ),
+                editProfissao.text.toString(),
+                if (radioF.isChecked) 'F' else 'M'
+
+            )
+
+            // Salvar o registro
+            // Em um SharedPreferences
+
+            // A instrução abaixo criará um
+            // arquivo SharedPreferences se não existir
+            // Se existir será aberto à edição
+
+            val dados = getSharedPreferences(
+                "usuario", Context.MODE_PRIVATE
+            )
+
+            // Criar o objeto que permitirá a
+            // edição
+
+        }
 
         return true
 
     }
 
-    fun validarCampos() : Boolean {
+    fun validarCampos(): Boolean {
 
         var valido = true
 
